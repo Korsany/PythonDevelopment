@@ -13,7 +13,7 @@ def change_theme(theme):
 
 # Функиция изменения шрифтового оформления
 def change_fonts(font_name):
-    text_field['font'] = fonts[font_name]['font']
+    text_field['font'] = fonts[font_name]['font'] 
 
 
 # Функция команды "Закрыть" меню "Файл"
@@ -33,7 +33,6 @@ def open_file():
 
 # Создание основного объекта Tkinter(окна)
 root = Tk()
-
 
 # Заголовок окна текстового редактора
 root.title("Текстовый редактор")
@@ -148,4 +147,12 @@ text_field.pack(expand=1, fill=BOTH, side=LEFT)
 
 # добавление виджета полосы прокрутки
 scroll = Scrollbar(f_text, command=text_field.yview)
-scroll
+scroll.pack(side=LEFT, fill=Y)
+
+# привязка полосы прокрутки к полю ввода текста окна
+text_field.config(yscrollcommand=scroll.set)
+
+
+
+# вывод  окна на экран
+root.mainloop()
